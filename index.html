@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1C1E21">
+    <meta name="theme-color" content="#F4F6F8">
     <title>차주 연락</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
@@ -16,18 +16,18 @@
             --shadow-alpha-35: rgba(0, 0, 0, 0.35); --shadow-alpha-40: rgba(0, 0, 0, 0.4);
             --white-alpha-04: rgba(255, 255, 255, 0.04); --white-alpha-08: rgba(255, 255, 255, 0.08);
             --accent-blue-alpha-05: rgba(71, 165, 250, 0.05); --accent-blue-alpha-08: rgba(71, 165, 250, 0.08);
-            --bg-primary: #1C1E21; --bg-card: #2A2D31; --bg-button: #FFFFFF;
-            --bg-button-hover: color-mix(in srgb, var(--bg-primary) 91%, white 9%);
-            --bg-button-active: color-mix(in srgb, var(--bg-primary) 95%, white 5%);
-            --text-primary: #FFFFFF; --text-secondary: #8A8D91; --text-button: #1C2B33;
-            --border-subtle: var(--white-alpha-08); --accent-blue: #47A5FA;
-            --shadow-card: 0 12px 28px var(--shadow-alpha-40), 0 1px 0 var(--white-alpha-04) inset;
-            --shadow-plate: inset 0 1px 3px var(--shadow-alpha-20);
-            --shadow-button: 0 4px 16px var(--shadow-alpha-30);
-            --shadow-button-hover: 0 8px 24px var(--shadow-alpha-35);
-            --shadow-button-active: 0 2px 8px var(--shadow-alpha-30);
-            --glow-primary: radial-gradient(circle at 30% 20%, var(--accent-blue-alpha-08) 0%, transparent 40%),
-                            radial-gradient(circle at 70% 80%, var(--accent-blue-alpha-05) 0%, transparent 40%);
+            --bg-primary: #F4F6F8; --bg-card: #FFFFFF; --bg-button: #F8F9FA;
+            --bg-button-hover: #243342;
+            --bg-button-active: #101820;
+            --text-primary: #17212B; --text-secondary: #747C86; --text-button: #17212B;
+            --border-subtle: #E4E8EC; --accent-blue: #2F80ED; --bg-action: #17212B; --text-action: #FFFFFF;
+            --shadow-card: 0 14px 36px rgba(23, 33, 43, 0.10), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+            --shadow-plate: inset 0 1px 2px rgba(23, 33, 43, 0.08);
+            --shadow-button: 0 6px 18px rgba(23, 33, 43, 0.18);
+            --shadow-button-hover: 0 10px 24px rgba(23, 33, 43, 0.22);
+            --shadow-button-active: 0 2px 8px rgba(23, 33, 43, 0.18);
+            --glow-primary: radial-gradient(circle at 30% 20%, rgba(47, 128, 237, 0.10) 0%, transparent 40%),
+                            radial-gradient(circle at 70% 80%, rgba(47, 128, 237, 0.05) 0%, transparent 40%);
             --font-size-11: 11px; --font-size-12: 12px; --font-size-14: 14px; --font-size-16: 16px;
             --font-size-20: 20px; --font-size-22: 22px; --font-size-32: 32px; --font-size-38: 38px;
             --font-weight-400: 400; --font-weight-500: 500; --font-weight-700: 700;
@@ -74,7 +74,7 @@
         }
         .call-button {
             display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px 24px;
-            background: var(--bg-primary); color: var(--text-primary); border: none; border-radius: 100px;
+            background: var(--bg-action); color: var(--text-action); border: none; border-radius: 100px;
             font-family: inherit; font-size: var(--body-bold-size); font-weight: var(--body-bold-weight);
             line-height: var(--body-bold-line-height); letter-spacing: var(--body-bold-letter-spacing);
             cursor: pointer; text-decoration: none; transition: transform 100ms ease-out, background 100ms ease-out, box-shadow 100ms ease-out;
