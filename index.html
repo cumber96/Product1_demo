@@ -127,45 +127,14 @@
         <div class="card">
             <div class="plate"><div class="plate-number" id="plateNumber">123가 5678</div></div>
             <div class="message"><div class="message-title">차량 이동이 필요하신가요?</div></div>
-            <button type="button" class="call-button" id="callBtn">
+            <a href="tel:01012345678" class="call-button" id="callBtn">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M22 16.92V19.92C22 20.52 21.52 21 20.92 21C10.45 21 2 12.55 2 2.08C2 1.48 2.48 1 3.08 1H6.08C6.68 1 7.16 1.48 7.16 2.08C7.16 3.69 7.42 5.27 7.92 6.76C8.07 7.21 7.96 7.71 7.62 8.05L5.9 9.77C7.4 12.94 10.06 15.6 13.23 17.1L14.95 15.38C15.29 15.04 15.79 14.93 16.24 15.08C17.73 15.58 19.31 15.84 20.92 15.84C21.52 15.84 22 16.32 22 16.92Z" fill="currentColor"/>
                 </svg>
                 전화 걸기
-            </button>
+            </a>
         </div>
         <div class="footer">연결 시 통신사 통화료가 발생할 수 있습니다</div>
     </div>
-    <div class="dialog-layer" id="callDialog" aria-hidden="true">
-        <div class="dialog-backdrop" id="dialogBackdrop"></div>
-        <div class="call-dialog" role="dialog" aria-modal="true" aria-label="전화 연결 확인">
-            <button type="button" class="dialog-button dialog-call" id="demoCallBtn">통화 010-1234-5678</button>
-            <button type="button" class="dialog-button dialog-cancel" id="cancelBtn">취소</button>
-        </div>
-    </div>
-    <script>
-        const callButton = document.getElementById('callBtn');
-        const callDialog = document.getElementById('callDialog');
-        const demoCallButton = document.getElementById('demoCallBtn');
-        const cancelButton = document.getElementById('cancelBtn');
-        const dialogBackdrop = document.getElementById('dialogBackdrop');
-        function openDialog() {
-            callDialog.classList.add('is-open');
-            callDialog.setAttribute('aria-hidden', 'false');
-            cancelButton.focus();
-        }
-        function closeDialog() {
-            callDialog.classList.remove('is-open');
-            callDialog.setAttribute('aria-hidden', 'true');
-            callButton.focus();
-        }
-        callButton.addEventListener('click', openDialog);
-        cancelButton.addEventListener('click', closeDialog);
-        dialogBackdrop.addEventListener('click', closeDialog);
-        demoCallButton.addEventListener('click', closeDialog);
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && callDialog.classList.contains('is-open')) closeDialog();
-        });
-    </script>
 </body>
 </html>
