@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  /* 글꼴 */
+  --font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Noto Sans KR", sans-serif;
+
+  /* 배경 */
+  --bg-primary: #f4f6f8;
+  --bg-card: #ffffff;
+  --bg-plate: #f8f9fa;
+
+  /* 텍스트 */
+  --text-primary: #17212b;
+  --text-secondary: #747c86;
+  --text-action: #ffffff;
+
+  /* 버튼 */
+  --bg-action: #17212b;
+  --bg-action-hover: #243342;
+  --bg-action-active: #101820;
+
+  /* 테두리와 포커스 */
+  --border-subtle: #e4e8ec;
+  --accent-blue: #2f80ed;
+
+  /* 그림자 */
+  --shadow-card:
+    0 14px 36px rgba(23, 33, 43, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  --shadow-plate: inset 0 1px 2px rgba(23, 33, 43, 0.08);
+  --shadow-button: 0 6px 18px rgba(23, 33, 43, 0.18);
+  --shadow-button-hover: 0 10px 24px rgba(23, 33, 43, 0.22);
+  --shadow-button-active: 0 2px 8px rgba(23, 33, 43, 0.18);
+
+  /* 배경 효과 */
+  --glow-primary:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(47, 128, 237, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(47, 128, 237, 0.05) 0%,
+      transparent 40%
+    );
+
+  /* 타이포그래피 */
+  --display-size: 38px;
+  --heading-size: 20px;
+  --body-size: 16px;
+  --caption-size: 13px;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+body::before {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  z-index: 0;
+  width: 200%;
+  height: 200%;
+  content: "";
+  background: var(--glow-primary);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  animation: fade-in-up 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card {
+  padding: 32px 28px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.plate {
+  position: relative;
+  padding: 24px 16px;
+  margin-bottom: 32px;
+  text-align: center;
+  background: var(--bg-plate);
+  border-radius: 12px;
+  box-shadow: var(--shadow-plate);
+}
+
+.plate-number {
+  font-family: var(--font-family);
+  font-size: var(--display-size);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.message {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.message-title {
+  font-size: var(--heading-size);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.call-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 18px 24px;
+  gap: 10px;
+  font-family: inherit;
+  font-size: var(--body-size);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-action);
+  text-decoration: none;
+  letter-spacing: 0;
+  cursor: pointer;
+  user-select: none;
+  background: var(--bg-action);
+  border: 0;
+  border-radius: 100px;
+  box-shadow: var(--shadow-button);
+  transition:
+    transform 100ms ease-out,
+    background 100ms ease-out,
+    box-shadow 100ms ease-out;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+}
+
+.call-button svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.call-button:active {
+  background: var(--bg-action-active);
+  box-shadow: var(--shadow-button-active);
+  transform: scale(0.98);
+}
+
+.call-button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+.footer {
+  margin-top: 24px;
+  font-size: var(--caption-size);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .call-button:hover {
+    background: var(--bg-action-hover);
+    box-shadow: var(--shadow-button-hover);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --display-size: 32px;
+  }
+
+  .card {
+    padding: 32px 20px 24px;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    animation: none;
+  }
+
+  .call-button {
+    transition: none;
+  }
+}

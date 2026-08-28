@@ -1,140 +1,71 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#F4F6F8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#F4F6F8" />
+
     <title>차주 연락</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="favicon.svg">
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        :root {
-            --font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-            --shadow-alpha-20: rgba(0, 0, 0, 0.2); --shadow-alpha-30: rgba(0, 0, 0, 0.3);
-            --shadow-alpha-35: rgba(0, 0, 0, 0.35); --shadow-alpha-40: rgba(0, 0, 0, 0.4);
-            --white-alpha-04: rgba(255, 255, 255, 0.04); --white-alpha-08: rgba(255, 255, 255, 0.08);
-            --accent-blue-alpha-05: rgba(71, 165, 250, 0.05); --accent-blue-alpha-08: rgba(71, 165, 250, 0.08);
-            --bg-primary: #F4F6F8; --bg-card: #FFFFFF; --bg-button: #F8F9FA;
-            --bg-button-hover: #243342;
-            --bg-button-active: #101820;
-            --text-primary: #17212B; --text-secondary: #747C86; --text-button: #17212B;
-            --border-subtle: #E4E8EC; --accent-blue: #2F80ED; --bg-action: #17212B; --text-action: #FFFFFF;
-            --shadow-card: 0 14px 36px rgba(23, 33, 43, 0.10), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-            --shadow-plate: inset 0 1px 2px rgba(23, 33, 43, 0.08);
-            --shadow-button: 0 6px 18px rgba(23, 33, 43, 0.18);
-            --shadow-button-hover: 0 10px 24px rgba(23, 33, 43, 0.22);
-            --shadow-button-active: 0 2px 8px rgba(23, 33, 43, 0.18);
-            --glow-primary: radial-gradient(circle at 30% 20%, rgba(47, 128, 237, 0.10) 0%, transparent 40%),
-                            radial-gradient(circle at 70% 80%, rgba(47, 128, 237, 0.05) 0%, transparent 40%);
-            --font-size-11: 11px; --font-size-12: 12px; --font-size-14: 14px; --font-size-16: 16px;
-            --font-size-20: 20px; --font-size-22: 22px; --font-size-32: 32px; --font-size-38: 38px;
-            --font-weight-400: 400; --font-weight-500: 500; --font-weight-700: 700;
-            --line-height-100: 1; --line-height-120: 1.2; --line-height-130: 1.3; --line-height-140: 1.4; --line-height-150: 1.5;
-            --letter-spacing-minus-03: -0.3px; --letter-spacing-0: 0px; --letter-spacing-05: 0.5px;
-            --letter-spacing-1: 1px; --letter-spacing-2: 2px;
-            --display-size: var(--font-size-38); --display-weight: var(--font-weight-700);
-            --display-line-height: var(--line-height-100); --display-letter-spacing: var(--letter-spacing-1);
-            --heading-size: var(--font-size-20); --heading-weight: var(--font-weight-500);
-            --heading-line-height: var(--line-height-130); --heading-letter-spacing: var(--letter-spacing-minus-03);
-            --body-bold-size: var(--font-size-16); --body-bold-weight: var(--font-weight-700);
-            --body-bold-line-height: var(--line-height-120); --body-bold-letter-spacing: var(--letter-spacing-0);
-            --caption-footnote-size: 13px; --caption-footnote-weight: var(--font-weight-400);
-            --caption-footnote-line-height: var(--line-height-140); --caption-footnote-letter-spacing: var(--letter-spacing-05);
-        }
-        html, body { height: 100%; overflow: hidden; }
-        body {
-            font-family: var(--font-family); background: var(--bg-primary); color: var(--text-primary);
-            display: flex; align-items: center; justify-content: center; padding: 24px; position: relative; overflow: hidden;
-        }
-        body::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: var(--glow-primary); pointer-events: none; z-index: 0;
-        }
-        .container { width: 100%; max-width: 380px; position: relative; z-index: 1; animation: fadeInUp 220ms cubic-bezier(0.2, 0.8, 0.2, 1); }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-        .card {
-            background: var(--bg-card); border-radius: 24px; padding: 32px 28px 28px;
-            border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);
-        }
-        .plate {
-            background: var(--bg-button); border-radius: 12px; padding: 24px 16px; text-align: center;
-            margin-bottom: 32px; box-shadow: var(--shadow-plate); position: relative;
-        }
-        .plate-number {
-            font-family: var(--font-family); font-size: var(--display-size); font-weight: var(--display-weight);
-            color: var(--text-button); letter-spacing: var(--display-letter-spacing); line-height: var(--display-line-height);
-            font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1, "lnum" 1;
-        }
-        .message { text-align: center; margin-bottom: 20px; }
-        .message-title {
-            font-size: var(--heading-size); font-weight: var(--heading-weight);
-            line-height: var(--heading-line-height); letter-spacing: var(--heading-letter-spacing);
-        }
-        .call-button {
-            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px 24px;
-            background: var(--bg-action); color: var(--text-action); border: none; border-radius: 100px;
-            font-family: inherit; font-size: var(--body-bold-size); font-weight: var(--body-bold-weight);
-            line-height: var(--body-bold-line-height); letter-spacing: var(--body-bold-letter-spacing);
-            cursor: pointer; text-decoration: none; transition: transform 100ms ease-out, background 100ms ease-out, box-shadow 100ms ease-out;
-            box-shadow: var(--shadow-button); touch-action: manipulation; -webkit-touch-callout: none; user-select: none;
-        }
-        .call-button:active { background: var(--bg-button-active); transform: scale(0.98); box-shadow: var(--shadow-button-active); }
-        @media (hover: hover) and (pointer: fine) {
-            .call-button:hover { background: var(--bg-button-hover); transform: translateY(-2px); box-shadow: var(--shadow-button-hover); }
-        }
-        .call-button:focus-visible, .dialog-button:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
-        .call-button svg { width: 20px; height: 20px; flex-shrink: 0; }
-        .dialog-layer {
-            position: fixed; inset: 0; z-index: 10; display: none; align-items: center; justify-content: center; padding: 24px;
-        }
-        .dialog-layer.is-open { display: flex; }
-        .dialog-backdrop {
-            position: absolute; inset: 0; background: rgba(0, 0, 0, 0.62);
-            backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);
-        }
-        .call-dialog {
-            width: 100%; max-width: 348px; position: relative; padding: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.58); border-radius: 32px;
-            background: rgba(239, 240, 241, 0.92); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.42);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); animation: dialogIn 160ms ease-out;
-        }
-        .dialog-button {
-            width: 100%; min-height: 60px; border: 0; border-radius: 30px; font-family: var(--font-family);
-            font-size: var(--font-size-20); font-weight: var(--font-weight-500); cursor: pointer; touch-action: manipulation;
-        }
-        .dialog-call { background: #0876ED; color: #FFFFFF; }
-        .dialog-cancel { margin-top: 10px; background: #C3C4C6; color: #111111; }
-        .dialog-button:active { transform: scale(0.985); }
-        @keyframes dialogIn {
-            from { opacity: 0; transform: scale(0.96) translateY(8px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .footer {
-            text-align: center; margin-top: 24px; font-size: var(--caption-footnote-size);
-            font-weight: var(--caption-footnote-weight); line-height: var(--caption-footnote-line-height);
-            color: var(--text-secondary); letter-spacing: var(--caption-footnote-letter-spacing);
-        }
-        @media (max-width: 380px) {
-            :root { --display-size: var(--font-size-32); --heading-size: var(--font-size-20); }
-            .card { padding: 32px 20px 24px; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="card">
-            <div class="plate"><div class="plate-number" id="plateNumber">123가 5678</div></div>
-            <div class="message"><div class="message-title">차량 이동이 필요하신가요?</div></div>
-            <a href="tel:01012345678" class="call-button" id="callBtn">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M22 16.92V19.92C22 20.52 21.52 21 20.92 21C10.45 21 2 12.55 2 2.08C2 1.48 2.48 1 3.08 1H6.08C6.68 1 7.16 1.48 7.16 2.08C7.16 3.69 7.42 5.27 7.92 6.76C8.07 7.21 7.96 7.71 7.62 8.05L5.9 9.77C7.4 12.94 10.06 15.6 13.23 17.1L14.95 15.38C15.29 15.04 15.79 14.93 16.24 15.08C17.73 15.58 19.31 15.84 20.92 15.84C21.52 15.84 22 16.32 22 16.92Z" fill="currentColor"/>
-                </svg>
-                전화 걸기
-            </a>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="card" aria-label="차주 연락">
+        <div class="plate">
+          <div class="plate-number" id="plateNumber"></div>
         </div>
-        <div class="footer">연결 시 통신사 통화료가 발생할 수 있습니다</div>
-    </div>
-</body>
+
+        <div class="message">
+          <div class="message-title" id="messageTitle"></div>
+        </div>
+
+        <a class="call-button" id="callButton">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M22 16.92V19.92C22 20.52 21.52 21 20.92 21C10.45 21 2 12.55 2 2.08C2 1.48 2.48 1 3.08 1H6.08C6.68 1 7.16 1.48 7.16 2.08C7.16 3.69 7.42 5.27 7.92 6.76C8.07 7.21 7.96 7.71 7.62 8.05L5.9 9.77C7.4 12.94 10.06 15.6 13.23 17.1L14.95 15.38C15.29 15.04 15.79 14.93 16.24 15.08C17.73 15.58 19.31 15.84 20.92 15.84C21.52 15.84 22 16.32 22 16.92Z"
+              fill="currentColor"
+            />
+          </svg>
+
+          <span id="callButtonText"></span>
+        </a>
+      </section>
+
+      <p class="footer" id="footerText"></p>
+    </main>
+
+    <script src="config.js"></script>
+    <script>
+      const config = window.PRODUCT_CONFIG;
+
+      document.title = config.pageTitle;
+      document.getElementById("plateNumber").textContent =
+        config.plateNumber;
+      document.getElementById("messageTitle").textContent =
+        config.messageTitle;
+      document.getElementById("callButtonText").textContent =
+        config.callButtonText;
+      document.getElementById("footerText").textContent =
+        config.footerText;
+
+      const callButton = document.getElementById("callButton");
+      callButton.href = `tel:${config.phoneNumber}`;
+      callButton.setAttribute(
+        "aria-label",
+        `${config.plateNumber} 차량 소유자에게 전화 걸기`
+      );
+    </script>
+  </body>
 </html>
